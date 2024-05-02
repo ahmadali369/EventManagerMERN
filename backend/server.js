@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express'); 
 const mongoose = require('mongoose'); 
 const ServiceRoutes = require('./routes/venderRoutes'); 
+const cors = require('cors')
 
 
 const app = express(); 
@@ -14,6 +15,8 @@ app.use((req, res, next) => {
     console.log(req.path, req.method); 
     next(); 
 })
+
+app.use(cors()); 
 
 
 app.use('/api/services', ServiceRoutes); 

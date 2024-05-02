@@ -10,15 +10,15 @@ const ServiceForm = () =>{
     const [venderName, setVenderName] = useState('')
 
   
-    const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
+    // const [error, setError] = useState(null)
+    // const [emptyFields, setEmptyFields] = useState([])
   
     const handleSubmit = async (e) => {
       e.preventDefault()
   
-      const service = { name,discription, venderName}
+      const service = { name, discription, venderName }
       
-      const response = await fetch('/api/services', {
+      const response = await fetch('http://localhost:4000/api/services', {
         method: 'POST',
         body: JSON.stringify(service),
         headers: {
@@ -28,12 +28,13 @@ const ServiceForm = () =>{
       const json = await response.json()
   
       if (!response.ok) {
-        setError(json.error)
-        setEmptyFields(json.emptyFields)
+        // setError(json.error)
+        // setEmptyFields(json.emptyFields)
+      
       }
       if (response.ok) {
-        setEmptyFields([])
-        setError(null)
+        // setEmptyFields([])
+        // setError(null)
         setName('')
         setDiscription('')
         setVenderName('')
@@ -51,7 +52,7 @@ const ServiceForm = () =>{
           type="text" 
           onChange={(e) => setName(e.target.value)} 
           value={name}
-          className={emptyFields.includes('name') ? 'error' : ''}
+        //   className={emptyFields.includes('name') ? 'error' : ''}
         />
   
         <label>Service Discription</label>
@@ -59,7 +60,7 @@ const ServiceForm = () =>{
           type="text" 
           onChange={(e) => setDiscription(e.target.value)} 
           value={discription}
-          className={emptyFields.includes('discription') ? 'error' : ''}
+        //   className={emptyFields.includes('discription') ? 'error' : ''}
         />
   
         <label>Vender Name:</label>
@@ -67,11 +68,11 @@ const ServiceForm = () =>{
           type="text" 
           onChange={(e) => setVenderName(e.target.value)} 
           value={venderName}
-          className={emptyFields.includes('venderName') ? 'error' : ''}
+        //   className={emptyFields.includes('venderName') ? 'error' : ''}
         />
   
         <button>Add Service</button>
-        {error && <div className="error">{error}</div>}
+        {/* {error && <div className="error">{error}</div>} */}
       </form>
     )
        
