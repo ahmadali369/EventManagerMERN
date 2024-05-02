@@ -1,11 +1,14 @@
 const VenderService = require("../models/venderModel");
-
 const mongoose = require("mongoose");
 
 // get all services
 const getServices = async (req, res) => {
-  const services = VenderService.find({});
-  res.status(200).json(services);
+  try {
+    const services = await VenderService.find({});
+    res.status(200).json(services);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 // get one service
@@ -16,44 +19,30 @@ const getOneService = async (req, res) => {
     return res.status(404).json({ error: "no such VenderService" });
   }
 
-  const service = VenderService.findById(id);
+  try {
+    const service = await VenderService.findById(id);
 
-  if (!service) {
-    return res.status(404).json({ error: "no such VenderSerice" });
+    if (!service) {
+      return res.status(404).json({ error: "no such VenderService" });
+    }
+
+    res.status(200).json(service);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-
-  res.status(200).json(service);
 };
 
-// create a new VenderServcie
-
+// create a new VenderService
 const createService = async (req, res) => {
-  const { name, discription, venderName } = req.body;
+  const { name, description, venderName } = req.body;
 
-  const emptyFields = [];
-
-  if (!name) {
-    emptyFields.push("name");
+  // validate request body
+  if (!name || !description || !venderName) {
+    return res.status(400).json({ error: "Please fill in all the fields" });
   }
-
-  if (!discription) {
-    emptyFields.push("discription");
-  }
-
-  if (!venderName) {
-    emptyFields.push("venderName");
-  }
-
-  if (emptyFields.length > 0) {
-    return res
-      .status(400)
-      .json({ error: "please fill in all the fields", emptyFields });
-  }
-
-  // add to data base
 
   try {
-    const service = await VenderService.create({ ...req.body });
+    const service = await VenderService.create(req.body);
     res.status(200).json(service);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -65,37 +54,43 @@ const deleteService = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "no such servie" });
+    return res.status(400).json({ error: "Invalid service ID" });
   }
 
-  const service = await VenderService.findOneAndDelete({ _id: id });
+  try {
+    const service = await VenderService.findByIdAndDelete(id);
 
-  if (!service) {
-    return res.status(400).json({ error: "no such service" });
+    if (!service) {
+      return res.status(404).json({ error: "No such service" });
+    }
+
+    res.status(200).json(service);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-
-  res.status(200).json(service);
 };
 
-// update servie
-
+// update service
 const updateService = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "no such service" });
+    return res.status(400).json({ error: "Invalid service ID" });
   }
 
-  const service = await VenderService.FindOneAndUpdate(
-    { _id: id },
-    { ...req.body }
-  );
+  try {
+    const service = await VenderService.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
 
-  if (!service) {
-    return res.status(400).json({ error: "no such service" });
+    if (!service) {
+      return res.status(404).json({ error: "No such service" });
+    }
+
+    res.status(200).json(service);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-
-  res.status(200).json(service);
 };
 
 module.exports = {
