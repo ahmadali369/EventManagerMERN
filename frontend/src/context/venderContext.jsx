@@ -1,8 +1,8 @@
 import { createContext, useReducer } from "react";
 
-const VenderServiceContext = createContext();
+export const VenderServiceContext = createContext();
 
-export const venderSerivceReducer = (state, action) => {
+export const VenderSerivceReducer = (state, action) => {
   switch (action.type) {
     case "SET_SERVICES":
       return {
@@ -24,7 +24,7 @@ export const venderSerivceReducer = (state, action) => {
 
 // eslint-disable-next-line react/prop-types
 export const VenderSerivceContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(venderSerivceReducer, {
+  const [state, dispatch] = useReducer(VenderSerivceReducer, {
     services: null,
   });
 

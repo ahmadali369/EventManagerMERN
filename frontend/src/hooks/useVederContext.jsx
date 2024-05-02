@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { VenderSerivceContext } from "../context/venderContext";
+import { VenderServiceContext } from "../context/venderContext";
 
 export const useVenderServiceContext = () =>{
 
-    const context = useContext(VenderSerivceContext); 
+    const context = useContext(VenderServiceContext); 
 
 
     if(!context){
