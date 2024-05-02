@@ -1,6 +1,6 @@
 const express = require('express');
 // const { getOneService } = require('../controllers/venderController');
-const router = express.router(); 
+const router = express.Router(); 
 
 const {getOneService, createService,  deleteService, updateService, getServices} = require('../controllers/venderController')
 

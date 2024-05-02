@@ -16,4 +16,4 @@ const venderSchema = new Schema({
 }, {timestamps: true});
 
 
-module.exports = mongoose.module('VenderService', venderSchema); 
+module.exports = mongoose.model('VenderService', venderSchema); 
