@@ -20,6 +20,7 @@ const ServiceDetails = ({ service }) => {
       method: "DELETE",
     });
     const json = await response.json();
+    console.log(json, 'deleted---------')
 
     if (response.ok) {
       dispatch({ type: "DELETE_SERVICE", payload: json });

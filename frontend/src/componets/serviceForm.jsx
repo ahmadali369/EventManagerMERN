@@ -21,6 +21,7 @@ const ServiceForm = () => {
       },
     });
     const json = await response.json();
+    console.log(json, 'new created-------------------')
 
     if (response.ok) {
       setName("");

@@ -11,11 +11,11 @@ export const VenderSerivceReducer = (state, action) => {
       };
     case "CREATE_SERVICE":
       return {
-        services: [action.plaload, ...state.services],
+        services: [action.payload, ...state.services],
       };
     case "DELETE_SERVICE":
       return {
-        services: state.services.filter((s) => s._id !== action.plaload._id),
+        services: state.services.filter((s) => s._id !== action.payload._id),
       };
 
     default:
