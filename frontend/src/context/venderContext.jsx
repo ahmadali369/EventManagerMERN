@@ -5,8 +5,7 @@ export const VenderServiceContext = createContext();
 export const VenderSerivceReducer = (state, action) => {
   switch (action.type) {
     case "SET_SERVICES":
-
-      return {        
+      return {
         services: action.payload,
       };
     case "CREATE_SERVICE":
