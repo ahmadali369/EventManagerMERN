@@ -5,8 +5,9 @@ export const VenderServiceContext = createContext();
 export const VenderSerivceReducer = (state, action) => {
   switch (action.type) {
     case "SET_SERVICES":
-      return {
-        services: action.plaload,
+
+      return {        
+        services: action.payload,
       };
     case "CREATE_SERVICE":
       return {
@@ -14,7 +15,7 @@ export const VenderSerivceReducer = (state, action) => {
       };
     case "DELETE_SERVICE":
       return {
-        services: state.services.filter(s => s._id != action.plaload._id),
+        services: state.services.filter((s) => s._id !== action.plaload._id),
       };
 
     default:
@@ -25,7 +26,7 @@ export const VenderSerivceReducer = (state, action) => {
 // eslint-disable-next-line react/prop-types
 export const VenderSerivceContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(VenderSerivceReducer, {
-    services: null,
+    services: [],
   });
 
   return (

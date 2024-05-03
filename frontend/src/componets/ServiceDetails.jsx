@@ -16,7 +16,7 @@ const ServiceDetails = ({ service }) => {
   const [content, setContent] = useState(service.name);
 
   const handleClick = async () => {
-    const response = await fetch("'http://localhost:4000/api/services/'" + service._id, {
+    const response = await fetch('http://localhost:4000/api/services/' + service._id, {
       method: "DELETE",
     });
     const json = await response.json();
@@ -40,7 +40,7 @@ const ServiceDetails = ({ service }) => {
       method: 'PATCH',
       body: JSON.stringify({
 
-        title: content
+        name: content
 
       }),
       headers: {
@@ -49,6 +49,8 @@ const ServiceDetails = ({ service }) => {
     })
 
     const json = await response.json()
+    console.log(json, 'updated--------')
+    
   };
 
 
