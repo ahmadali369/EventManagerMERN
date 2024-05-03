@@ -14,7 +14,7 @@ export const VenderSerivceReducer = (state, action) => {
       };
     case "DELETE_SERVICE":
       return {
-        services: state.services.filter((s) => s._id != action.plaload._id),
+        services: state.services.filter(s => s._id != action.plaload._id),
       };
 
     default:

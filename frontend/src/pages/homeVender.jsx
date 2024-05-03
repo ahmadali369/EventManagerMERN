@@ -15,6 +15,7 @@ const HomeVender = () => {
     const fetchWorkouts = async () => {
       const response = await fetch("http://localhost:4000/api/services");
       const json = await response.json();
+      console.log(json)
 
       if (response.ok) {
         dispatch({ type: "SET_SERVICES", payload: json });
