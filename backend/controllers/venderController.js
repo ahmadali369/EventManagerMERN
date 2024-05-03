@@ -34,12 +34,7 @@ const getOneService = async (req, res) => {
 
 // create a new VenderService
 const createService = async (req, res) => {
-  // const { name, description, venderName } = req.body;
 
-  // // validate request body
-  // if (!name || !description || !venderName) {
-  //   return res.status(400).json({ error: "Please fill in all the fields" });
-  // }
 
   try {
     const service = await VenderService.create({...req.body});
