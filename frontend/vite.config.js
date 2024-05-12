@@ -13,11 +13,11 @@ export default defineConfig({
         changeOrigin: true,
       },
 
-      // '/other-api': {
-      //   target: 'http://localhost:3000',
-      //   changeOrigin: true,
-      //   rewrite: (path) => path.replace(/^\/other-api/, ''),
-      // },
+      '/event': {
+        target: 'http://localhost:4000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/event/, ''),
+      },
     },
   },
 
