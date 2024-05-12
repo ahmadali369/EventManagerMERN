@@ -11,7 +11,7 @@ const HomeVender = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("http://localhost:2000/api/services");
+      const response = await fetch("/api/services");
       const json = await response.json();
       console.log(json, "all data------------");
 

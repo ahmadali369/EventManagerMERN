@@ -13,7 +13,7 @@ const ServiceForm = () => {
 
     const service = { name, discription, venderName };
 
-    const response = await fetch("http://localhost:2000/api/services", {
+    const response = await fetch("/api/services", {
       method: "POST",
       body: JSON.stringify(service),
       headers: {
