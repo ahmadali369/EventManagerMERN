@@ -1,35 +1,36 @@
 import React from "react";
 
+
 const Services = () => {
   const services = [
     {
       id: 1,
-      url: "/birthday.jpg",
+      url: "../../../public/birthday.jpg",
       title: "Birthday Planning",
     },
     {
       id: 2,
-      url: "/anniversary.jpg",
+      url: "../../../public/anniversary.jpg",
       title: "Anniversary Planning",
     },
     {
       id: 3,
-      url: "/camping.jpg",
+      url: "../../../public/camping.jpg",
       title: "Camping Trip Planning",
     },
     {
       id: 4,
-      url: "/gamenight.jpg",
+      url: "../../../public/gamenight.jpg",
       title: "Game Night Planning",
     },
     {
       id: 5,
-      url: "/party.jpg",
+      url: "../../../public/party.jpg",
       title: "Party Planning",
     },
     {
       id: 6,
-      url: "/wedding.jpg",
+      url: "../../../public/wedding.jpg",
       title: "Wedding Planning",
     },
   ];

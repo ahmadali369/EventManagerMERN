@@ -15,12 +15,21 @@ const Navbar = () => {
           <Link to="services" spy={true} smooth={true} duration={500}>
             EVENTS
           </Link>
+
+          <Link to="/" spy={true} smooth={true} duration={500}>
+            SERVICES
+          </Link>
+
+
           <Link to="about" spy={true} smooth={true} duration={500}>
             ABOUT
           </Link>
           <Link to="contact" spy={true} smooth={true} duration={500}>
             SIGN UP
           </Link>
+
+
+
         </div>
       </div>
       <div className="hamburger" onClick={() => setShow(!show)}>
