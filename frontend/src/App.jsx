@@ -1,9 +1,11 @@
-import "./index.css";
+// import "./index.css";
+import "./Vender/index.css"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import NavBar from "./componets/NavBar";
-import HomeVender from "./pages/homeVender";
+import NavBar from "./Vender/componets/NavBar";
+import HomeVender from "./Vender/pages/homeVender";
+
 
 function App() {
   return (
