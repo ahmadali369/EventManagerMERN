@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
@@ -9,16 +11,20 @@ const Navbar = () => {
       <div className="logo">Event Management</div>
       <div className={show ? "navLinks showmenu" : "navLinks"}>
         <div className="links">
-          <Link to="hero" spy={true} smooth={true} duration={500}>
+          
+          <NavLink to="/">
             HOME
-          </Link>
+          </NavLink>
+
+
+
           <Link to="services" spy={true} smooth={true} duration={500}>
             EVENTS
           </Link>
 
-          <Link to="/" spy={true} smooth={true} duration={500}>
+          <NavLink to="/services">
             SERVICES
-          </Link>
+          </NavLink>
 
 
           <Link to="about" spy={true} smooth={true} duration={500}>

@@ -55,8 +55,8 @@ const ServiceDetails = ({ service }) => {
           value={content}
           onChange={handleContentChange}
           style={{
-            width: "20%",
-            maxHeight: "15px",
+            width: "40%",
+            Height: "10px",
             border: "1px solid black",
             padding: "5px",
             fontSize: "20px",
@@ -64,7 +64,10 @@ const ServiceDetails = ({ service }) => {
           }}
         />
 
-        <button onClick={updateTitle}>update</button>
+<div>
+     <button className="buttonn" onClick={updateTitle}>update</button>
+</div>
+        
       </div>
 
       <p>

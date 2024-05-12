@@ -24,14 +24,16 @@ const HomeVender = () => {
   }, [dispatch]);
 
   return (
-    <div className="home">
-      <div className="service">
-        {services &&
-          services.map((service) => (
-            <ServiceDetails service={service} key={service._id} />
-          ))}
+    <div className="pages">
+      <div className="home">
+        <div className="service">
+          {services &&
+            services.map((service) => (
+              <ServiceDetails service={service} key={service._id} />
+            ))}
+        </div>
+        <ServiceForm />
       </div>
-      <ServiceForm />
     </div>
   );
 };
