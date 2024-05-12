@@ -13,7 +13,7 @@ const ServiceDetails = ({ service }) => {
 
   const handleClick = async () => {
     const response = await fetch(
-      "http://localhost:4000/api/services/" + service._id,
+      "http://localhost:2000/api/services/" + service._id,
       {
         method: "DELETE",
       }
@@ -32,7 +32,7 @@ const ServiceDetails = ({ service }) => {
 
   const updateTitle = async () => {
     const response = await fetch(
-      "http://localhost:4000/api/services/" + service._id,
+      "http://localhost:2000/api/services/" + service._id,
       {
         method: "PATCH",
         body: JSON.stringify({
