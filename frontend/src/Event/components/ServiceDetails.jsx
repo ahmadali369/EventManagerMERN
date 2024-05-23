@@ -4,7 +4,7 @@ import "../index.css";
 
 // date fns
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { useVenderServiceContext } from "../hooks/useVederContext";
+import { useVenderServiceContext } from "./homeVender";
 
 const ServiceDetails = ({ service }) => {
   const { dispatch } = useVenderServiceContext();
@@ -13,7 +13,7 @@ const ServiceDetails = ({ service }) => {
 
   const handleClick = async () => {
     const response = await fetch(
-      "/api/services/" + service._id,
+      "/api/events/" + service._id,
       {
         method: "DELETE",
       }
@@ -32,7 +32,7 @@ const ServiceDetails = ({ service }) => {
 
   const updateTitle = async () => {
     const response = await fetch(
-      "/api/services/" + service._id,
+      "/api/events/" + service._id,
       {
         method: "PATCH",
         body: JSON.stringify({
@@ -71,16 +71,16 @@ const ServiceDetails = ({ service }) => {
       </div>
 
       <p>
-        <strong>Service Name: </strong>
+        <strong>Event Name: </strong>
         {service.name}
       </p>
       <p>
-        <strong>Service Discription: </strong>
+        <strong>Event Details: </strong>
         {service.discription}
       </p>
 
       <p>
-        <strong>Vender Name: </strong>
+        <strong>: </strong>
         {service.venderName}
       </p>
 

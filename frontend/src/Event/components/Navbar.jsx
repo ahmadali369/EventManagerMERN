@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="logo">Event Management</div>
       <div className={show ? "navLinks showmenu" : "navLinks"}>
         <div className="links">
-          
+
           <NavLink to="/">
             HOME
           </NavLink>
@@ -20,6 +20,9 @@ const Navbar = () => {
 
           <Link to="services" spy={true} smooth={true} duration={500}>
             EVENTS
+          </Link>
+          <Link to="/events" spy={true} smooth={true} duration={500}>
+            EVENT DETAILS
           </Link>
 
           <NavLink to="/services">

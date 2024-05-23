@@ -6,13 +6,9 @@ const HeroSection = () => {
     <section className="hero">
       <img src="../../../public/restaurant.jpg" alt="restaurant" />
       <div className="item">
-        <h3>Event Manager</h3>
         <div>
-          <h1>Your Personal Dream Maker</h1>
-          <p>
-            We believe that it is all about the BIG DREAMS and the small
-            details!
-          </p>
+          <h1>Event Manager</h1>
+
           <Link to="contact" spy={true} smooth={true} duration={500}>
             SIGN UP
           </Link>

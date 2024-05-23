@@ -13,11 +13,19 @@ export default defineConfig({
         changeOrigin: true,
       },
 
+      '/api/events': {
+        target: 'http://localhost:4000',
+        changeOrigin: true,
+
+      },
+
       '/event': {
         target: 'http://localhost:4000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/event/, ''),
       },
+
+
     },
   },
 

@@ -1,7 +1,9 @@
-import { createContext, useReducer } from "react";
+import { useContext } from "react";
+// import { VenderServiceContext } from "../context/venderContext";
+
 export const VenderServiceContext = createContext();
 
-export const VenderSerivceReducerr = (state, action) => {
+export const VenderSerivceReducer = (state, action) => {
   switch (action.type) {
     case "SET_SERVICES":
       return {
@@ -23,9 +25,10 @@ export const VenderSerivceReducerr = (state, action) => {
 
 // eslint-disable-next-line react/prop-types
 export const VenderSerivceContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(VenderSerivceReducerr, {
+  const [state, dispatch] = useReducer(VenderSerivceReducer, {
     services: [],
   });
+
 
   return (
     <VenderServiceContext.Provider value={{ ...state, dispatch }}>
@@ -34,4 +37,13 @@ export const VenderSerivceContextProvider = ({ children }) => {
   );
 };
 
+export const useVenderServiceContext = () => {
+  const context = useContext(VenderServiceContext);
 
+  if (!context) {
+    throw Error(
+      "useVenderServiceContext must be used inside VenderSeriviceContextProvider"
+    );
+  }
+  return context;
+};
