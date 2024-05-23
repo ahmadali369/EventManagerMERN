@@ -3,9 +3,12 @@ import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useAuth } from "../../Vender/login signUp/store/auth";
+
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+  const { isLoggedIn } = useAuth();
   return (
     <nav>
       <div className="logo">Event Management</div>
@@ -25,9 +28,24 @@ const Navbar = () => {
             EVENT DETAILS
           </Link>
 
-          <NavLink to="/services">
+
+
+
+          {isLoggedIn ? (
+            <>
+              <NavLink to="/services">SERVICES</NavLink>
+            </>
+          ) : (
+            <>
+          <NavLink to="/signup">
             SERVICES
           </NavLink>
+            </>
+          )}
+
+
+
+
 
 
           <Link to="about" spy={true} smooth={true} duration={500}>

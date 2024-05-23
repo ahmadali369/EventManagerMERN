@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useVenderServiceContext } from "../hooks/useVederContext";
+import { NavLink } from "react-router-dom";
+
 
 const ServiceForm = () => {
   const { dispatch } = useVenderServiceContext();
@@ -33,6 +35,9 @@ const ServiceForm = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}>
+        <NavLink to="/logout">
+            Logout
+        </NavLink>
       <h3>Add a New Service</h3>
 
       <label>Service Name:</label>

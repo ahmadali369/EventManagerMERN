@@ -6,6 +6,7 @@ import "../index.css";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useVenderServiceContext } from "../hooks/useVederContext";
 
+
 const ServiceDetails = ({ service }) => {
   const { dispatch } = useVenderServiceContext();
 
@@ -50,7 +51,9 @@ const ServiceDetails = ({ service }) => {
 
   return (
     <div className="service-details">
+
       <div style={{ display: "flex", gap: "30px" }}>
+
         <textarea
           value={content}
           onChange={handleContentChange}

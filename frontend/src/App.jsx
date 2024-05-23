@@ -15,6 +15,13 @@ import Contact from "./Event/components/Contact";
 import Footer from "./Event/components/Footer";
 
 
+
+import Signup from "./Vender/login signUp/pages/Signup";
+import Login from "./Vender/login signUp/pages/Login";
+import Logout from "./Vender/login signUp/pages/Logout";
+import "./Vender/login signUp/App.css"
+
+
 function App() {
   return (
     // <>
@@ -37,7 +44,14 @@ function App() {
       {/* --------------------------- */}
       <Routes>
         <Route path="/" element={<HomeEvent />} />
+
+
+
         <Route path="/services" element={<HomeVender />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+
 
       </Routes>
     </BrowserRouter>
